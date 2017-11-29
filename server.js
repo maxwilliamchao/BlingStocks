@@ -1,0 +1,3 @@
+// ServerJS
+
+var hello;
