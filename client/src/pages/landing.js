@@ -12,7 +12,7 @@ render() {
           //   handleFormSubmit={this.handleFormSubmit}
           //   handleInputChange={this.handleInputChange}
           />
-          <Searchresults results={this.state.results} />
+          <Searchresults />
           <Watchlist />
         </div>
       </div>
