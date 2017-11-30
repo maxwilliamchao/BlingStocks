@@ -35,3 +35,21 @@ app.get("*", function(req, res) {
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
+
+app.get.user(":id/stock/:tickersymbol", function(req, res) {
+
+  db.User.findOne{_id: req.params.id}, function(user) {
+    user.stocks[req.params.ticker] = req.params.ticker;
+  }
+
+  db.user{_id: ...} // not completed
+
+
+
+})
+
+app.put.user(":id/stock/:tickersymbol", function(req, res) {
+
+
+
+})
