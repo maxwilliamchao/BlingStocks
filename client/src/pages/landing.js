@@ -13,6 +13,7 @@ render() {
           //   handleInputChange={this.handleInputChange}
           />
           <Searchresults results={this.state.results} />
+          <Watchlist />
         </div>
       </div>
     )
