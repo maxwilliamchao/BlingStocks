@@ -1,3 +1,3 @@
 module.exports = {
-  Watchlist: require("./stocks.js")
+  Watchlist: require("./users.js")
 };
