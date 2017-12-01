@@ -1,3 +1,7 @@
+import React, {Component} from 'react';
+import API from '../../utils/API';
+import StockData from '../StockData'
+
 class Saved extends Component{
   state = {
     savedStocks: []
@@ -9,6 +13,13 @@ componentDidMount(){
 
 loadStocks = () => {
 //this will be a call to the database to retrieve list of stocks saved in database.
+API.getSavedStocks()
+  .then(res => {
+    console.log('result', res)
+    this.setState({savedStocks: res.data})
+    })
+  .catch(err => console.log(err));
+
 }
 
 render() {
@@ -17,11 +28,11 @@ render() {
         <div className="container">
           <div className="panel panel-primary">
             <div className="panel-heading">
-              Saved Stocks
+              Watchlist
             </div>
             <div className="panel-body">
-              <Stock>
-              <Stock/>
+              <SavedStocksCard>
+              </SavedStocksCard>
             </div>
           </div>
         </div>
