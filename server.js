@@ -36,20 +36,22 @@ app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 
-app.get.user(":id/stock/:tickersymbol", function(req, res) {
+// below are some route notes from Jerome's white board
 
-  db.User.findOne{_id: req.params.id}, function(user) {
-    user.stocks[req.params.ticker] = req.params.ticker;
-  }
+// app.get.user(":id/stock/:tickersymbol", function(req, res) {
 
-  db.user{_id: ...} // not completed
+//   db.User.findOne{_id: req.params.id}, function(user) {
+//     user.stocks[req.params.ticker] = req.params.ticker;
+//   }
 
-
-
-})
-
-app.put.user(":id/stock/:tickersymbol", function(req, res) {
+//   db.user{_id: ...} // not completed
 
 
 
-})
+// })
+
+// app.put.user(":id/stock/:tickersymbol", function(req, res) {
+
+// //
+
+// })
