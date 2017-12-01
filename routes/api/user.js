@@ -1,19 +1,50 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
 
+// SEVEN ROUTES (as of 3pm Friday, 12/1)
+
 // get back all users
 router.get("/users", function(req, res){
   // call to DB to get all users
   // userController.findAll(req, res);
-  console.log("Farley-Bob-Marley") ;
-  res.send("Holiday Times");
+  console.log("Farley Bob Marley");
+  res.send("All users!");
 })
 
 // get back ONE user
-// router.get("/users/:id", function(req, res){
-//   // call to DB to get ONE users
-//   // userController.findById(req, res)  ;
-// })
+router.get("/users/:id", function(req, res){
+  // call to DB to get ONE users
+  // userController.findById(req, res)  ;
+  res.send("ONE user");
+})
+
+// create a user
+router.post("/users/:id", function(req, res){
+
+})
+
+// remove a user
+router.delete("/users/:id", function(req, res){
+
+})
+
+// view a user's saved stocks
+router.get("/users/:id/stocks", function(req, res){
+
+  res.send("saved stocks");
+
+})
+
+// the user saves a stock
+router.post("/users/:id/stocks", function(req, res){
+
+})
+
+// the user removes a stock
+router.delete("/users/:id/stocks/:id", function(req, res){
+
+})
+
 
 
 
