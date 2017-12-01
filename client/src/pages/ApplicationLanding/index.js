@@ -1,1 +1,1 @@
-export {default} from  "./AppilcationLanding.js"
+export { default } from  "./ApplicationLanding.js"
