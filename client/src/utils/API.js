@@ -21,10 +21,11 @@ export default {
             console.log(error);
         });
     },
+    
     getSavedStocks: () => {
         return axios.get('/api/stock');
       },
-      removeStock: id => {
+    removeStock: id => {
         return axios.delete('/api/stock/' + id)
       }
 };
