@@ -20,7 +20,7 @@ class Signin extends Component{
                     <div>
                         <Card className = "mui-container ">
                         <div className = "mui-row mui--text-center">    
-                                <CardTitle title = "Signin" />
+                                <CardTitle title = "SignUp" />
                         </div>
                         <Form>
                             <legend>UserName:</legend>
@@ -30,7 +30,6 @@ class Signin extends Component{
                             <legend> Re Enter Password:</legend>
                             <Input placeholder="Reenter your password Here" />
                             <Button variant="raised" color = "primary">Signin</Button>
-                            
                          </Form>
                         </Card> 
                     </div>
