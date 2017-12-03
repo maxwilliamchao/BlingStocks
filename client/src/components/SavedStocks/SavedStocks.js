@@ -33,12 +33,15 @@ export default class SavedStocks extends Component{
           <div>
             <MuiThemeProvider>
               <Card>
-                <CardHeader
-                  title="URL Avatar"
-                  subtitle="Subtitle"
+                <CardTitle 
+                title="Stock Name" 
+                subtitle="Stock Symbol"
+                actAsExpander={true}
+                showExpandableButton={true} 
                 />
-                <CardTitle title="Card title" subtitle="Card subtitle" />
-                <CardText>
+                <CardMedia>
+                </CardMedia>
+                <CardText expandable= {true}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
                   Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
