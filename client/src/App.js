@@ -5,15 +5,18 @@ import Header from './components/Header'
 import ApplicationLanding from './pages/ApplicationLanding'
 import Dashboard from './pages/Dashboard'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Signin from './components/Signin'
+import Signup from './components/Signup'
 const App = () =>
  
  <Router>
    <MuiThemeProvider>
     <div>
-      {/* <Header /> */}
       <Switch>
         <Route exact path='/' component={ApplicationLanding}/>
         <Route exact path ='/dashboard' component={Dashboard} />
+        <Route exact path ='/SignIn' component={Signin} />
+        <Route exact path ='/Signup' component={Signup} />
         {/* <Route exact path = '/search' component={SavedStocks} /> */}
       </Switch>
     </div>

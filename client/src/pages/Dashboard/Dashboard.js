@@ -27,8 +27,9 @@ class Dashboard extends Component {
     }
     render() {
         return(
-            <div className = "container-fluid">
+            <div className = "mui-container-fluid">
                 <Header />
+                <span><br/><br/><br/><br/><br/><br/><br/></span>
                 <SearchBar
                     onChange ={this.handleInputChange}
                     onRequestSearch = {this.handleRequestSearch}
