@@ -2,10 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./routes/userRoutes/routes.js");
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+const path = require("path");
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -18,7 +18,7 @@ app.use(routes);
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/nytreact",
+  process.env.MONGODB_URI || "mongodb://localhost/BlingStocks",
   {
     useMongoClient: true
   }
