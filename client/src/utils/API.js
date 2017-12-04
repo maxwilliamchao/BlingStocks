@@ -23,7 +23,7 @@ export default {
         });
     },
     saveUser:function(data){
-        axios.post("/saved",{
+        axios.post("/signup",{
             username:data.username,
             email:data.email,
             password:data.password,
