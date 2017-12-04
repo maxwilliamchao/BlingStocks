@@ -8,5 +8,10 @@ const userSchema = new Schema({
   createdAt: { type: Date, default: Date.now() },
   stocks: {type: Object, default: {} }
 });
+<<<<<<< HEAD
 const User = mongoose.model("User", userSchema);
 module.exports = User;
+=======
+const Watchlist = mongoose.model("Watchlist", userSchema);
+module.exports = Watchlist;
+>>>>>>> master

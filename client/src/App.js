@@ -1,31 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import SavedStocks from './components/SavedStocks'
-import Header from './components/Header'
-import ApplicationLanding from './pages/ApplicationLanding'
-import Dashboard from './pages/Dashboard'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
-import Signin from './components/Signin'
-import Signup from './components/Signup'
-
-
+import SavedStockCard from './components/SavedStocks'
 
 const App = () =>
- 
- <Router>
-   <MuiThemeProvider>
+  <Router>
     <div>
+      <Header />
       <Switch>
-        <Route exact path='/' component={ApplicationLanding}/>
-        <Route exact path ='/dashboard' component={Dashboard} />
-        <Route exact path ='/SignIn' component={Signin} />
-        <Route exact path ='/Signup' component={Signup} />
-        {/* <Route exact path = '/search' component={SavedStocks} /> */}
+        <Route exact path='/' component={Login}/>
+        <Route exact path ='/search' component={Search} />
+        <Route exact path = '/search' component={SavedStocks} />
       </Switch>
     </div>
-    </MuiThemeProvider>
-  </Router>
-
+  </Router>;
 
 export default App;

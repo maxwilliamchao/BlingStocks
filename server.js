@@ -16,6 +16,7 @@ app.use(express.static("client/build"));
 app.use(routes);
 
 // Set up promises with mongoose
+
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
@@ -34,3 +35,23 @@ app.get("*", function(req, res) {
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
+
+// below are some route notes from Jerome's white board
+
+// app.get.user(":id/stock/:tickersymbol", function(req, res) {
+
+//   db.User.findOne{_id: req.params.id}, function(user) {
+//     user.stocks[req.params.ticker] = req.params.ticker;
+//   }
+
+//   db.user{_id: ...} // not completed
+
+
+
+// })
+
+// app.put.user(":id/stock/:tickersymbol", function(req, res) {
+
+// //
+
+// })
