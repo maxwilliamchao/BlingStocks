@@ -40,17 +40,17 @@ export default {
     //   },
       
 
-    saveStock: stockObj => {
-        return axios.post('/api/stock', stockObj);
-    },
+    // saveStock: stockObj => {
+    //     return axios.post('/api/stock', stockObj);
+    // },
     
-    getSavedStocks: () => {
-        return axios.get('/api/stock');
-    },
+    // getSavedStocks: () => {
+    //     return axios.get('/api/stock');
+    // },
 
-    removeStock: id => {
-        return axios.delete('/api/stock/' + id)
-    }
+    // removeStock: id => {
+    //     return axios.delete('/api/stock/' + id)
+    // }
 };
 
 
