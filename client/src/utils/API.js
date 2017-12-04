@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default {
+
     getStocks:function(data){
         const url = "https://www.alphavantage.co/query?"
         const apiKey = "Q4IXS4UBOYG17AYI"
@@ -38,6 +39,18 @@ export default {
     //     return axios.delete('/api/stock/' + id)
     //   },
       
+
+    saveStock: stockObj => {
+        return axios.post('/api/stock', stockObj);
+    },
+    
+    getSavedStocks: () => {
+        return axios.get('/api/stock');
+    },
+
+    removeStock: id => {
+        return axios.delete('/api/stock/' + id)
+    }
 };
 
 
