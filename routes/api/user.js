@@ -6,7 +6,10 @@ const userController = require("../../controllers/userController");
 // get back all users
 router.get("/users", function(req, res){
   // call to DB to get all users
-  // userController.findAll(req, res);
+  userController.findAll(req, res)
+  .then(function(users) {
+  	res.json(users);
+  });
   console.log("Farley Bob Marley");
   res.send("All users!");
 })
@@ -14,25 +17,39 @@ router.get("/users", function(req, res){
 // get back ONE user
 router.get("/users/:id", function(req, res){
   // call to DB to get ONE users
-  // userController.findById(req, res)  ;
+  userController.findById(req, res)
+  .then(function(users) {
+  	res.json(users);
+  });
   res.send("ONE user");
 })
 
 // create a user
 router.post("/users/:id", function(req, res){
-
-})
+	 userController.create({
+      username: req.body.activityName,
+      password: req.body.description
+    })
+      .then(function (users) {
+        res.json(users);
+      });
+});
 
 // remove a user
 router.delete("/users/:id", function(req, res){
-
+	userController.remove({})
+    	.then(function (users) {
+        res.json(users);
+    });
 })
 
 // view a user's saved stocks
 router.get("/users/:id/stocks", function(req, res){
-
-  res.send("saved stocks");
-
+	userController.findAll(req, res)
+	.then(function(users) {
+		res.json(users);
+	});
+	res.send("saved stocks");
 })
 
 // the user saves a stock
@@ -42,6 +59,10 @@ router.post("/users/:id/stocks", function(req, res){
 
 // the user removes a stock
 router.delete("/users/:id/stocks/:id", function(req, res){
+	userController.remove({})
+      .then(function (users) {
+        res.json(users);
+      });
 
 })
 
