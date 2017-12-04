@@ -22,18 +22,35 @@ export default {
             console.log(error);
         });
     },
-
-    saveStock: stockObj => {
-        return axios.post('/api/stock', stockObj);
-    },
-    
-    getSavedStocks: () => {
-        return axios.get('/api/stock');
-    },
-
-    removeStock: id => {
-        return axios.delete('/api/stock/' + id)
+    saveUser:function(data){
+        axios.post("/saved",{
+            username:data.username,
+            email:data.email,
+            password:data.password,
+            phone:data.phone
+        }).then(function(res){
+            console.log(res);
+        })
     }
+    // getSavedStocks: () => {
+    //     return axios.get('/api/stock');
+    //   },
+    //   removeStock: id => {
+    //     return axios.delete('/api/stock/' + id)
+    //   },
+      
+
+    // saveStock: stockObj => {
+    //     return axios.post('/api/stock', stockObj);
+    // },
+    
+    // getSavedStocks: () => {
+    //     return axios.get('/api/stock');
+    // },
+
+    // removeStock: id => {
+    //     return axios.delete('/api/stock/' + id)
+    // }
 };
 
 
