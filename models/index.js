@@ -1,3 +1,4 @@
 module.exports = {
-  Watchlist: require("./User.js")
-};
+    User: require("./User")
+  };
+  

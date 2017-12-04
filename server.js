@@ -1,21 +1,22 @@
 const express = require("express");
-const path = require("path");
-const mongoose = require("mongoose");
+
+
 const bodyParser = require("body-parser");
-const routes = require("./routes");
-const PORT = process.env.PORT || 3001;
+const logger = require("morgan");
+const mongoose = require("mongoose");
+const routes = require("./routes/userRoutes/routes.js");
 const app = express();
-
-// Serve up static assets (usually on heroku)
-app.use(bodyParser.urlencoded({ extended: false }));
+const PORT = process.env.PORT || 3001;
+const path = require("path");
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-
+// Serve up static assets
+app.use(express.static("client/build"));
+// Add routes, both API and view
 app.use(routes);
+
+// Set up promises with mongoose
 
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
