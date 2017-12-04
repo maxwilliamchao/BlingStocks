@@ -7,9 +7,9 @@ const userController = require("../../controllers/userController");
 router.get("/users", function(req, res){
   // call to DB to get all users
   userController.findAll(req, res)
-  .then(function(users) {
-  	res.json(users);
-  });
+  // .then(function(users) {
+  // 	res.json(users);
+  // });
   console.log("Farley Bob Marley");
   res.send("All users!");
 })
