@@ -29,7 +29,8 @@ class Signin extends Component{
         const username = this.state.username;
         const email = this.state.email;
         const phone = this.state.phone;
-        const password1 =  this.state.password;
+        const password1 =  this.state.password1;
+    
         
         const data = {
           username:username,
@@ -37,6 +38,7 @@ class Signin extends Component{
           phone:phone,
           password:password1  
         };
+        console.log(data);
         API.saveUser(data);
     }
     render(){
