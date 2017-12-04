@@ -5,7 +5,7 @@ import Header from './components/Header'
 import ApplicationLanding from './pages/ApplicationLanding'
 import Dashboard from './pages/Dashboard'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-<<<<<<< HEAD
+
 import Signin from './components/Signin'
 import Signup from './components/Signup'
 
