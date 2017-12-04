@@ -8,5 +8,6 @@ const userSchema = new Schema({
   createdAt: { type: Date, default: Date.now() },
   stocks: {type: Object, default: {} }
 });
-const Watchlist = mongoose.model("Watchlist", userSchema);
-module.exports = Watchlist;
+const User = mongoose.model("User", userSchema);
+module.exports = User;
+

@@ -18,10 +18,16 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     findUser:function(req,res){
-        db.Saved.find(req.query)
+        db.User.find(req.query)
         .sort({createdAt:-1})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
-    }
-    
+    },
+    removeStocks: function(req, res) {
+        db.Article
+          .findById({ _id: req.params.id })
+          .then(dbModel => dbModel.remove())
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+    }    
 }

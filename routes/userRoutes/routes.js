@@ -8,5 +8,8 @@ router.route("/signup")
 // router.use(function(req, res) {
 //   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 // });
+router.route('/saved')
+      .get(userController.findUser);
+
 
 module.exports = router;
