@@ -9,6 +9,32 @@ import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
 
 class Signin extends Component{
+    state = {
+        username:"",
+        password:""
+    };
+
+    handleInputChange = event =>{
+        const {name,value} = event.target
+        this.setState({
+            [name]:value
+        }); 
+    }
+
+    
+    handleFormSubmit = event =>{
+        event.preventDefault();
+        const username = this.state.username;
+        const password =  this.state.password;
+    
+        
+        const data = {
+          username:username,
+          password:password  
+        };
+        console.log(data);
+        API.getUser(data);
+    }
     render(){
         return(
             <div ClassName = "mui-container-fluid">
@@ -24,10 +50,28 @@ class Signin extends Component{
                         </div>
                         <Form>
                             <legend>UserName:</legend>
-                            <Input placeholder="Enter Your UserName Here" />
+                            <Input 
+                            placeholder="Enter Your UserName Here" 
+                            id = "username"
+                            value = {this.state.username}
+                            onChange = {this.handleInputChange}
+                            name = "username"
+                            required
+                            />
                             <legend>Password:</legend>
-                            <Input placeholder="Enter your password Here" />
-                            <Button variant="raised" color = "primary">Submit</Button>
+                            <Input 
+                            laceholder="Enter your password Here"
+                            id ="password"
+                            value = {this.state.password}
+                            onChange = {this.handleInputChange}
+                            name = "password" 
+                            requirement/>
+                            <Button 
+                            variant="raised" 
+                            color = "primary"
+                            type = "onFormSubmit"
+                            onClick = {this.handleFormSubmit}
+                            >Signin</Button>
                          </Form>
                         </Card> 
                     </div>

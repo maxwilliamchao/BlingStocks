@@ -31,6 +31,14 @@ export default {
         }).then(function(res){
             console.log(res);
         })
+    },
+    getUser:function(data){
+        axios.post("/signin",{
+            username:data.username,
+            password:data.password
+        }).then(function(res){
+            console.log(res);
+        })
     }
     // getSavedStocks: () => {
     //     return axios.get('/api/stock');

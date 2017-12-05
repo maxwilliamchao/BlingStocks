@@ -7,13 +7,18 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const path = require("path");
 const morgan = require("morgan");
+const passport = require("passport")
+require("./passport-auth/passport")(passport);
 // Configure body parser for AJAX requests
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use(routes);
+ app.use(passport.initialize());
+app.use(passport.session());
 
 // Set up promises with mongoose
 

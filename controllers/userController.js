@@ -1,15 +1,21 @@
 const db = require("../models");
-// const crypt = require("../crypt/crypt");
+const crypt = require("../crypt/crypt");
 
 
 //create route for sving routes
 
 module.exports = {
     createUser:function(req,res){
-        console.log("i am being hit");
-        db.User.create(req.body)
-        .then(dbModel =>res.json(dbModel))
-        .catch(err =>  console.log(err));
+        var password = req.body.password;
+        crypt.encrypt(password,function(hashedPassword,salt){
+            console.log("i am being hit");
+            req.body.password = hashedPassword;
+            req.body.salt=salt;
+            db.User.create(req.body)
+            .then(dbModel =>res.json(dbModel))
+            .catch(err =>  console.log(err));
+        })
+        
         //  res.status(422).json(err));
     },
     findUser:function(req,res){

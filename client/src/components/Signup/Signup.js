@@ -8,7 +8,7 @@ import Input from 'muicss/lib/react/input';
 import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
 
-class Signin extends Component{
+class SignUp extends Component{
     state = {
         username:"",
         email:"",
@@ -103,7 +103,7 @@ class Signin extends Component{
                             color = "primary"
                             type = "onFormSubmit"
                             onClick = {this.handleFormSubmit}
-                            >Signin</Button>
+                            >Signup</Button>
                          </Form>
                         </Card> 
                     </div>
@@ -113,4 +113,4 @@ class Signin extends Component{
     }
 }
 
-export default Signin;
+export default SignUp;
