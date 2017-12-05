@@ -5,56 +5,69 @@ import Chart from 'chart.js';
 
 
 
-const ResultsPanel = () => 
+class ResultsPanel extends React.Component {
+  constructor(props){
+    super(props)
+  }
 
-<Card>
-    <CardHeader
-      // title="stockName"
-      // subtitle="stockSymbol"
-    />
-    <CardMedia
-      // overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-    >
+  componentDidMount(){
+    var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+      labels: [0,200,400,600,800,1000,1200,1400,1600,1800],
+      datasets: [{ 
+          data: [1000,1114,1206,1006,907,1110,1130,1100,1050,1075],
+          label: "stockSymbol",
+          borderColor: "#3e95cd",
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true
+        // maintainaspectratio: false
+      }
 
-    
+        });
+  }
+
+  render(){
+  return <Card>
+      <CardHeader
+        // title="stockName"
+        // subtitle="stockSymbol"
+      />
+      <CardMedia
+        // overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
+      >
+
+      <div class="row">
+      <div class="col-xs-6">
+    <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
+      <div class="col-xs-6">
+      </div>
+      </div>
+        
+      </CardMedia>
+      <CardTitle title="{res.data.Symbol}" />
+      <CardText>
+        <p>Open: fromAPIcall</p>
+        <p>High: fromAPIcall</p>
+        <p>Low: fromAPIcall</p>
+        <p>Close: fromAPIcall</p>
+      </CardText>
+      <CardActions>
+        <FlatButton label="Action1" />
+        <FlatButton label="Action2" />
+      </CardActions>
+    </Card>
+  }
 
 
-    
-      
-    </CardMedia>
-    <CardTitle title="stockSymbol" />
-    <CardText>
-      <p>Open: fromAPIcall</p>
-      <p>High: fromAPIcall</p>
-      <p>Low: fromAPIcall</p>
-      <p>Close: fromAPIcall</p>
-    </CardText>
-    <CardActions>
-      <FlatButton label="Action1" />
-      <FlatButton label="Action2" />
-    </CardActions>
-  </Card>
 
 
-
-var ctx = document.getElementById("myChart").getContext('2d');
-      var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-    labels: [0,200,400,600,800,1000,1200,1400,1600,1800],
-    datasets: [{ 
-        data: [1000,1114,1206,1006,907,1110,1130,1100,1050,1075],
-        label: "stockSymbol",
-        borderColor: "#3e95cd",
-        fill: false
-      }]
-    },
-    options: {
-      responsive: false
-    }
-
-      });
-
+}
 
 export default ResultsPanel;
 
