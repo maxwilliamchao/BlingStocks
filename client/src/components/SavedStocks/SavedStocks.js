@@ -13,7 +13,7 @@ export default class SavedStocks extends Component{
   }
 
   componentDidMount(){
-    // this.loadStocks();
+    this.loadStocks();
   }
 
   loadStocks = () => {
@@ -34,7 +34,7 @@ export default class SavedStocks extends Component{
             <MuiThemeProvider>
               <Card>
                 <CardTitle 
-                // title={this.state.savedStocks}
+                title={this.state.savedStocks}
                 actAsExpander={true}
                 showExpandableButton={true} 
                 />

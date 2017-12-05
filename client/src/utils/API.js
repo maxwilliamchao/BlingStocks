@@ -35,7 +35,10 @@ export default {
     },
 
     getSavedStocks: () => {
-        return axios.get('/saved');
+        return axios.get('/api/user/saved')
+                     .then(function(res){
+                        return res;
+                     });
     },
     
     removeStock: id => {
