@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import Header from "../../components/Header"
 import SearchBar from 'material-ui-search-bar'
 import API from "../../utils/API";
+import ResultsPanel from "../../components/ResultsPanel"
+
 class Dashboard extends Component {
     state = {
         results:[],
@@ -36,6 +38,10 @@ class Dashboard extends Component {
                         margin:'0 auto',
                         maxWidth:800
                     }}/>
+                <ResultsPanel
+                ResultsPanel = {this.ResultsPanel}
+                 />
+                
             </div>
         );
     }
