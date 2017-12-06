@@ -33,9 +33,10 @@ export default {
         })
     },
     getUser:function(data){
-        axios.post("/signin",{
-            username:data.username,
-            password:data.password
+        const username = data.username
+        const password = data.password
+        axios.get("/signin/"+username+"/"+password,{
+
         }).then(function(res){
             console.log(res);
         })

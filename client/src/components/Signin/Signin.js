@@ -7,6 +7,7 @@ import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
+import { Link } from "react-router-dom";
 
 class Signin extends Component{
     state = {
@@ -37,7 +38,7 @@ class Signin extends Component{
     }
     render(){
         return(
-            <div ClassName = "mui-container-fluid">
+            <div className = "mui-container-fluid">
                 <div className = "header">
                     <Header />
                     <span><br/><br/><br/><br/><br/><br/><br/></span>
@@ -60,12 +61,12 @@ class Signin extends Component{
                             />
                             <legend>Password:</legend>
                             <Input 
-                            laceholder="Enter your password Here"
+                            placeholder="Enter your password Here"
                             id ="password"
                             value = {this.state.password}
                             onChange = {this.handleInputChange}
                             name = "password" 
-                            requirement/>
+                            required/>
                             <Button 
                             variant="raised" 
                             color = "primary"
