@@ -30,16 +30,18 @@ class SignUp extends Component{
         const email = this.state.email;
         const phone = this.state.phone;
         const password1 =  this.state.password1;
-    
+        const password2 = this.state.password2;
         
-        const data = {
-          username:username,
-          email:email,
-          phone:phone,
-          password:password1  
-        };
-        console.log(data);
-        API.saveUser(data);
+        if(password1 === password2){
+            const data = {
+            username:username,
+            email:email,
+            phone:phone,
+            password:password1  
+            };
+            console.log(data);
+            API.saveUser(data);
+        }
     }
     render(){
         return(

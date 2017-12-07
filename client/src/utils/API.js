@@ -59,12 +59,13 @@ export default {
         return axios.get('/api/user/saved').then(function(res){
             return res;
         });
-      },
-      removeStock: () => {
-          const username = "brandon"
-        return axios.delete('/api/user/saved', {username:username
-        })
-      },
+      }
+    // ,
+    //   removeStock: () => {
+    //       const username = "brandon"
+    //     return axios.delete('/api/user/saved', {username:username}
+    //     })
+    //   },
       
 
     // saveStock: stockObj => {

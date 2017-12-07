@@ -4,8 +4,13 @@ const path = require("path");
 const passport = require("passport")
 const db = require("../../models");
 const mongoose = require("mongoose")
-router.route("/signup")
-      .post(userController.createUser);
+router.post("/signin",function(req,res){
+      
+});
+
+router.post("/signup",function(req,res){
+
+});
 router.post("/dashboard", function(req, res){
       db.User.findOneAndUpdate({
             'username':req.body.username
@@ -28,7 +33,7 @@ router.get("/dashboard", function(req,res){
 router.get("/saved", function(req,res){
       db.User.findOne({'username':'brandon'})
       .then(dbModel => res.json(dbModel.stocks) )
-    });
+});
 // router.use(function(req, res) {
 //   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 // });
