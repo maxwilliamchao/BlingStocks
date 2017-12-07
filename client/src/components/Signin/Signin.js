@@ -66,6 +66,7 @@ class Signin extends Component{
                             value = {this.state.password}
                             onChange = {this.handleInputChange}
                             name = "password" 
+                            type = "password"
                             required/>
                             <Button 
                             variant="raised" 

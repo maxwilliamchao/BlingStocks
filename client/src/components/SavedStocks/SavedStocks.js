@@ -4,7 +4,7 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import API from "../../utils/API";
-
+import UserHeader from "../UserHeader"
 
 export default class SavedStocks extends Component{
 
@@ -40,6 +40,8 @@ export default class SavedStocks extends Component{
   render() {
     return (
         <div>
+        <UserHeader />
+        <span> <br /> <br /></span>
         {this.state.savedStocks.map((value,i) => (
           <div>
             <MuiThemeProvider>

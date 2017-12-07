@@ -3,7 +3,7 @@ import Header from "../../components/Header"
 import SearchBar from 'material-ui-search-bar'
 import API from "../../utils/API";
 import ResultsPanel from "../../components/ResultsPanel"
-
+import UserHeader from "../../components/UserHeader"
 class Dashboard extends Component {
     state = {
         results:[],
@@ -12,6 +12,10 @@ class Dashboard extends Component {
         maxValue:"",
         minValue:""
     };
+
+    componentDidMount(){
+        // console.log(request.session.username);
+    }
     componentWillUpdate(){
         console.log("Update",this.state.results)
     }
@@ -58,7 +62,8 @@ class Dashboard extends Component {
     render() {
         return(
             <div className = "container-fluid">
-                <Header />
+                <UserHeader />
+                
                 <span>
                 <br /> <br />  
                 </span>

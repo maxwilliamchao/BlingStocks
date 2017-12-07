@@ -35,10 +35,17 @@ export default {
     getUser:function(data){
         const username = data.username
         const password = data.password
-        axios.get("/api/user/signin/"+username+"/"+password,{
-
+        axios.post("/api/user/signin",{
+            username:username,
+            password:password
         }).then(function(res){
             console.log(res);
+            if(res.data.auth){
+                 
+                window.location.href = "/dashboard"
+            }else{
+                alert("incorrect login");
+            }
         })
     },
     saveStock:function(data){

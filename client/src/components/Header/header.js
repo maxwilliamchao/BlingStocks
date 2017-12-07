@@ -40,7 +40,7 @@ const styles = {
                         <MuiThemeProvider>
                             <div>
                              <AppBar
-                                title="ApplicationLanding"
+                                title="Bling Stocks"
                                 iconClassNameLeft="muidocs-icon-navigation-expand-more"
                                 // iconElementRight={rightButtons}
                               />

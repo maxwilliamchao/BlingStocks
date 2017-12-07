@@ -41,6 +41,8 @@ class SignUp extends Component{
             };
             console.log(data);
             API.saveUser(data);
+        }else{
+            alert("passwords dont match")
         }
     }
     render(){
