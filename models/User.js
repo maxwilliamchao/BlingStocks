@@ -7,7 +7,7 @@ const userSchema = new Schema({
   salt:{type:String,required:true},
   phone: {type: String, required: true, unique: true},
   createdAt: { type: Date, default: Date.now() },
-  stocks: {type: Object, default: {} }
+  stocks: {type: Array, default: [] }
 });
 
 const User = mongoose.model("User", userSchema);

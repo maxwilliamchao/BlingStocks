@@ -35,11 +35,20 @@ export default {
     getUser:function(data){
         const username = data.username
         const password = data.password
-        axios.get("/signin/"+username+"/"+password,{
+        axios.get("/users/signin/"+username+"/"+password,{
 
         }).then(function(res){
             console.log(res);
         })
+    },
+    saveStock:function(data){
+        const username = "brandon"
+        const ticker = data.ticker
+        axios.post("users/dashboard/"+username,{ticker:ticker})
+             .then(function(res){
+                 console.log(res);
+                 alert("the stock has been saved to the database")
+             })
     }
     // getSavedStocks: () => {
     //     return axios.get('/api/stock');

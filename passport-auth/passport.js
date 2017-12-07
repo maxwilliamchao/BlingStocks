@@ -1,6 +1,8 @@
-
-var userController = "../controllers/userController.js"
+//
+// var userController = "../controllers/userController.js"
 var LocalStrategy = require("passport-local").Strategy;
+const mongoose = require("mongoose");
+const db = require("../models");
 module.exports = function(passport) {
     
         // =========================================================================
@@ -34,11 +36,21 @@ module.exports = function(passport) {
                 passwordField : 'password',
                 passReqToCallback : true // allows us to pass back the entire request to the callback
             },
-            function(req, username, userPassword, done) { // callback with email and password from our form
-                userController.findUser(username,function (err,data) {
-                    if (err) {console.log(err)}
-                    console.log(data);
-                });
+            function(username, password, done) { // callback with email and password from our form
+                db.User.findOne({username:username},function(error,user){
+                    if (err) { return done(err); }
+                    if (!user) {
+                        return done(null, false, { message: 'Incorrect username.' });
+                      }
+                      if (!user.validPassword(password)) {
+                        return done(null, false, { message: 'Incorrect password.' });
+                      }
+                      return done(null, user);
+                    });
+                  }
+                ));
+            }
+              
         //             if (!err) {
         //                 if (rows.length==0) {
         //                     return done({ "statusCode":404, "status": "failure", "message": "Sorry. No user with given credentials exist" });
@@ -70,7 +82,7 @@ module.exports = function(passport) {
         //         });
         //     })
         // );
-            })
-        )
-            }
+        //     })
+        // )
+        //     }
         

@@ -41,7 +41,7 @@ const styles = {
                             <div>
                              <AppBar
                                 title="ApplicationLanding"
-                                iconClassNameRight="muidocs-icon-navigation-expand-more"
+                                iconClassNameLeft="muidocs-icon-navigation-expand-more"
                                 // iconElementRight={rightButtons}
                               />
                             </div>
