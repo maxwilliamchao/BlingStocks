@@ -3,10 +3,10 @@ const userController = require("../../controllers/userController");
 const path = require("path");
 const passport = require("passport")
 const db = require("../../models");
-
+const mongoose = require("mongoose")
 router.route("/signup")
       .post(userController.createUser);
-router.post("/dashboard/:username", function(req, res){
+router.post("/dashboard", function(req, res){
       db.User.findOneAndUpdate({
             'username':req.body.username
       },{
@@ -17,17 +17,18 @@ router.post("/dashboard/:username", function(req, res){
             'new':true,'upsert':true
       }
 )
-      .then( dbModel =>  console.log(dbModel))
+      .then( dbModel =>  res.json(dbModel))
       .catch(err => console.log(err));
        });
       
-router.get("/signin/:username/:password", function(req,res){
-      const username = req.params  .username
-      const passport = req.params.password;
-       passport.authenticate('local-login', function(response) {
-            console.log(response);
-      })(req, res);
-})
+router.get("/dashboard", function(req,res){
+  db.User.findOne({'username':'brandon'})
+  .then(dbModel => res.json(dbModel) )
+});
+router.get("/saved", function(req,res){
+      db.User.findOne({'username':'brandon'})
+      .then(dbModel => res.json(dbModel.stocks) )
+    });
 // router.use(function(req, res) {
 //   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 // });

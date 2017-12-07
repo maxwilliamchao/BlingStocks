@@ -30,8 +30,10 @@ class ResultsPanel extends React.Component {
     }
 
     componentWillUpdate(prevProps,prevState){
+      
     console.log("update2")
     if(this.props.maxValue != prevProps.maxValue){
+      this.setState({stockTicker:this.props.symbol})
     const symbol = this.props.symbol.toUpperCase();
      const data = this.props.stockData;
      

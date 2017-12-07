@@ -23,7 +23,7 @@ export default {
         });
     },
     saveUser:function(data){
-        axios.post("/signup",{
+        axios.post("/api/user/signup",{
             username:data.username,
             email:data.email,
             password:data.password,
@@ -35,7 +35,7 @@ export default {
     getUser:function(data){
         const username = data.username
         const password = data.password
-        axios.get("/users/signin/"+username+"/"+password,{
+        axios.get("/api/user/signin/"+username+"/"+password,{
 
         }).then(function(res){
             console.log(res);
@@ -44,18 +44,27 @@ export default {
     saveStock:function(data){
         const username = "brandon"
         const ticker = data.ticker
-        axios.post("users/dashboard/"+username,{ticker:ticker})
-             .then(function(res){
+        console.log(ticker);
+        axios.post("/api/user/dashboard", {
+            username:username,
+            ticker:ticker
+        }).then(function(res,err){
                  console.log(res);
+                 if(err){console.log(err)}
                  alert("the stock has been saved to the database")
              })
-    }
-    // getSavedStocks: () => {
-    //     return axios.get('/api/stock');
-    //   },
-    //   removeStock: id => {
-    //     return axios.delete('/api/stock/' + id)
-    //   },
+    },
+    
+    getSavedStocks: () => {
+        return axios.get('/api/user/saved').then(function(res){
+            return res;
+        });
+      },
+      removeStock: () => {
+          const username = "brandon"
+        return axios.delete('/api/user/saved', {username:username
+        })
+      },
       
 
     // saveStock: stockObj => {

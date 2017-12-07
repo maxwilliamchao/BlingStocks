@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const expressSession = require('express-session')
 const app = express();
 const PORT = process.env.PORT || 3001;
+const routes = require("./routes");
 const path = require("path");
 const morgan = require("morgan");
 const session = require('client-sessions');
@@ -21,7 +22,7 @@ app.use(session({
 	duration: 30 * 60 * 1000,    
 	activeDuration: 5 * 60 * 1000,
 }));
- const routes = require("./routes/userRoutes");
+ 
 
 app.use(routes);
 

@@ -21,6 +21,11 @@ class ApplicationLanding extends Component {
                         <div className = "mui-col-md-12">
                         <Link to = "/signup"><Button variant="raised" color = "primary">Signup</Button></Link>
                         </div>
+                        <div>
+                        <Link to = "/dashboard"><Button variant="raised" color = "primary">Dashboard</Button></Link>
+                        </div>
+                        <div>
+                        <Link to = "/saved"><Button variant="raised" color = "primary">saved</Button></Link></div>
                     </Card>
                     </div>
                 </div>
