@@ -30,6 +30,9 @@ export default {
             phone:data.phone
         }).then(function(res){
             console.log(res);
+            if(res){
+                alert("signup successful");
+            }
         })
     },
     getUser:function(data){
@@ -66,13 +69,18 @@ export default {
         return axios.get('/api/user/saved').then(function(res){
             return res;
         });
-      }
+      },
     // ,
-    //   removeStock: () => {
-    //       const username = "brandon"
-    //     return axios.delete('/api/user/saved', {username:username}
-    //     })
-    //   },
+      removeStock: data => {
+          console.log(data)
+          var attribute  = data.attribute
+          return axios.put('/api/user/saved',{attribute:attribute}).then(function(res){
+              if(res){
+                  window.location.href = "/saved"
+              }
+          })
+        }
+      
       
 
     // saveStock: stockObj => {

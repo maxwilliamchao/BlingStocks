@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import API from "../../utils/API";
 import UserHeader from "../UserHeader"
-
+import Button from 'muicss/lib/react/button';
 export default class SavedStocks extends Component{
 
   state = {
@@ -21,19 +21,17 @@ export default class SavedStocks extends Component{
   //this will be a call to the database to retrieve list of stocks saved in database.
   API.getSavedStocks()
     .then(res => {
-      console.log('result', res.data)
       this.setState({savedStocks: res.data})
       })
     .catch(err => console.log(err));
 
   }
   deleteStocks = (event) =>{
-    const find = event.target.attributes
-    console.log(find);
-    // const del = find.getNamedItem("data-value").value;
-    // console.log(del);
+    var attribute = event.target.attributes.getNamedItem('data-name').value;
+    console.log(attribute)
     event.preventDefault();
-    API.removeStock()
+    var data = {attribute:attribute}
+    API.removeStock(data);
   }
 
 
@@ -51,13 +49,16 @@ export default class SavedStocks extends Component{
                 actAsExpander={true}
                 showExpandableButton={true} 
                 />
-                <CardActions > 
-                  
-                  <FlatButton
-                  data-value = {this.value}
-                  onClick = {this.deleteStocks} 
-                  label="Delete From Watchlist" />
-                </CardActions>
+                 <CardActions>
+                 <Button 
+                                   variant="raised" 
+                                   color = "primary"
+                                   type = "onFormSubmit"
+                                   data-name = {value}
+                                   onClick = {this.deleteStocks}
+                                   >Delete stock
+                 </Button>
+             </CardActions>
               </Card>
             </MuiThemeProvider>
           </div>

@@ -54,45 +54,9 @@ class ResultsPanel extends React.Component {
 
     })}
   }
-  // componentDidUpdate(prevProps,prevState){
-  //   const symbol = [];
-  //    const output = this.props.stockData["Meta Data"].slice(0,5);
-  //    console.log(output);
-  //    for(var keys in output){
-  //       symbol.push(keys);
-
-
-
-  //    }
   
-   //console.log(this.props["Time Series (60min)"]["2017-11-21 10:00:00"]);
-   
-    
-
-  // }
   componentDidMount(){ 
   
-        // scales: {
-        //   xAxes: [{
-        //     stacked: true
-        //   }]
-      // yAxes: [{
-      //   stacked: true,
-      //   position: "left",
-      //   id: "y-axis-0",
-      //   ticks: { min: 0, max: 1200 }
-      // }]
-        // },
-        // options: {
-        //   responsive: false
-        // //   beginAtZero: true,
-        // //   stepSize: 150,
-        // //   min: 0,
-        // //   steps: 150,
-        // //   max: 1800
-        // }
-
-         // });
   }
 
   render(){
@@ -102,27 +66,27 @@ class ResultsPanel extends React.Component {
         title={this.props.stockData.symbol}
         // subtitle="stockSymbol"
       />
-      <CardMedia
-        // overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-
-      >
-
-      <div className="row">
-        <div className="col-xs-3">
+      <CardMedia>
+        <div className="mui-row">
+        <div className="mui-col-md-3">
         </div>
-        <div className="col-xs-6">
-          <canvas id="myChart" width="400" height="400">
+        <div className="mui-col-md-6">
+          <canvas id="myChart" width="100" height="100">
           {console.log(this.props.stockData.symbol)}
         </canvas>
         </div>
-        <div className="col-xs-3">
+        <div className="mui-col-md-3">
         </div>
       </div>
+      </CardMedia>
+      
+
+      
         
 
       
         
-      </CardMedia>
+     
       
       <CardText>
         <p>X-axis is minutes prior to NOW and the Y-axis is price.</p>
@@ -140,6 +104,7 @@ class ResultsPanel extends React.Component {
                             >Save stock
           </Button>
       </CardActions>
+<span><br /> <br /></span>
     </Card>
   }
 
