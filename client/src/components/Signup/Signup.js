@@ -8,7 +8,7 @@ import Input from 'muicss/lib/react/input';
 import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
 
-class Signin extends Component{
+class SignUp extends Component{
     state = {
         username:"",
         email:"",
@@ -30,16 +30,20 @@ class Signin extends Component{
         const email = this.state.email;
         const phone = this.state.phone;
         const password1 =  this.state.password1;
-    
+        const password2 = this.state.password2;
         
-        const data = {
-          username:username,
-          email:email,
-          phone:phone,
-          password:password1  
-        };
-        console.log(data);
-        API.saveUser(data);
+        if(password1 === password2){
+            const data = {
+            username:username,
+            email:email,
+            phone:phone,
+            password:password1  
+            };
+            console.log(data);
+            API.saveUser(data);
+        }else{
+            alert("passwords dont match")
+        }
     }
     render(){
         return(
@@ -103,7 +107,7 @@ class Signin extends Component{
                             color = "primary"
                             type = "onFormSubmit"
                             onClick = {this.handleFormSubmit}
-                            >Signin</Button>
+                            >Signup</Button>
                          </Form>
                         </Card> 
                     </div>
@@ -113,4 +117,4 @@ class Signin extends Component{
     }
 }
 
-export default Signin;
+export default SignUp;

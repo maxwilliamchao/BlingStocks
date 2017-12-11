@@ -2,17 +2,28 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const routes = require("./routes/userRoutes/routes.js");
+const expressSession = require('express-session')
 const app = express();
 const PORT = process.env.PORT || 3001;
+const routes = require("./routes");
 const path = require("path");
 const morgan = require("morgan");
+const session = require('client-sessions');
 // Configure body parser for AJAX requests
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Serve up static assets
 app.use(express.static("client/build"));
 // Add routes, both API and view
+app.use(session({ 
+  secret: 'keyboard cat',
+  cookieName: 'session',   
+	duration: 30 * 60 * 1000,    
+	activeDuration: 5 * 60 * 1000,
+}));
+ 
+
 app.use(routes);
 
 // Set up promises with mongoose

@@ -23,21 +23,64 @@ export default {
         });
     },
     saveUser:function(data){
-        axios.post("/signup",{
+        axios.post("/api/user/signup",{
             username:data.username,
             email:data.email,
             password:data.password,
             phone:data.phone
         }).then(function(res){
             console.log(res);
+            if(res){
+                alert("signup successful");
+            }
         })
-    }
-    // getSavedStocks: () => {
-    //     return axios.get('/api/stock');
-    //   },
-    //   removeStock: id => {
-    //     return axios.delete('/api/stock/' + id)
-    //   },
+    },
+    getUser:function(data){
+        const username = data.username
+        const password = data.password
+        axios.post("/api/user/signin",{
+            username:username,
+            password:password
+        }).then(function(res){
+            console.log(res);
+            if(res.data.auth){
+                 
+                window.location.href = "/dashboard"
+            }else{
+                alert("incorrect login");
+            }
+        })
+    },
+    saveStock:function(data){
+        const username = "brandon"
+        const ticker = data.ticker
+        console.log(ticker);
+        axios.post("/api/user/dashboard", {
+            username:username,
+            ticker:ticker
+        }).then(function(res,err){
+                 console.log(res);
+                 if(err){console.log(err)}
+                 alert("the stock has been saved to the database")
+             })
+    },
+    
+    getSavedStocks: () => {
+        return axios.get('/api/user/saved').then(function(res){
+            return res;
+        });
+      },
+    // ,
+      removeStock: data => {
+          console.log(data)
+          var attribute  = data.attribute
+          return axios.put('/api/user/saved',{attribute:attribute}).then(function(res){
+              if(res){
+                  window.location.href = "/saved"
+              }
+          })
+        }
+      
       
 
     // saveStock: stockObj => {
