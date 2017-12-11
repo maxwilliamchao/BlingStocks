@@ -74,8 +74,8 @@ router.put("/saved",function(request,response){
       db.User.findOneAndUpdate({'username':request.session.username},{ $pull: { 'stocks' :{ $in:[ request.body.attribute ]}}},
       { multi: true }).then(dbModel => response.json(true));
 })
-// router.use(function(req, res) {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 module.exports = router;
