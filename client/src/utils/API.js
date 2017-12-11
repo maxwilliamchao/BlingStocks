@@ -32,6 +32,7 @@ export default {
             console.log(res);
             if(res){
                 alert("signup successful");
+                window.location.href = "/"
             }
         })
     },
