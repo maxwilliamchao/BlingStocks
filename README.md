@@ -28,7 +28,7 @@ yarn
 yarn build
 ```
 ## Visual Application Walkthrough
-![BlingStocks walk-through](https://github.com/maxwilliamchao/BlingStocks.mp4)
+![BlingStocks walk-through](https://github.com/maxwilliamchao//BlingStocks/BlingStocks.mp4)
 ## Code Examples
 ### Alpha Vantage
 ```
