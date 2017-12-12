@@ -210,6 +210,7 @@ export default {
 * Run `node server.js` 
 * Then load [http://localhost:3001/](http://localhost:3001/)
 **Heroku Deployment:**
+https://pacific-woodland-98913.herokuapp.com/
 ## Misc Notes
 * Github master branch pushes autodeploy to Heroku (sweet).
 ## Authors
